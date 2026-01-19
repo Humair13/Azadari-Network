@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azadari Network Bareilly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* GENERAL */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: #ffffff;
+      background-color: darkgrey;
+      padding-top: 90px; /* header space */
+      padding-bottom: 80px; /* footer space */
+      background-image: url('back.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(90deg, #e50914, #b00610);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 98%;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: 50px;
+      border-radius: 20%;
+      border: 2px solid #fff;
+      object-fit: cover;
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: 1.3rem;
+      margin: 0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 5px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffd700;
+      background-color: rgba(255,255,255,0.15);
+    }
+
+    /* CONTAINER */
+    .container {
+      padding: 2rem 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      margin: 1.5rem auto;
+      max-width: 1200px;
+      box-shadow: 0 0 30px rgba(229,9,20,0.3);
+      backdrop-filter: blur(1px);
+    }
+
+    /* INTRO SECTION */
+    .intro {
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: #ffd700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      color: #f1f1f1;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #e50914, #b00610);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff0000, #e50914);
+    }
+
+    /* SECTIONS */
+    .section-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .section-card {
+      flex: 1 1 350px;
+      background-color: rgba(20, 20, 20, 0.85);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(229,9,20,0.5);
+    }
+
+    .section-card h2 {
+      color: #ffd700;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      border-bottom: 2px solid #e50914;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* VIDEO GRID */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .video-grid iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: 10px;
+      border: 2px solid #e50914;
+    }
+
+    /* IMAGE GRID */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .image-grid img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(229,9,20,0.5);
+    }
+
+    /* FOOTER */
+    footer {
+  background: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  padding: 1rem 0;
+  color: #aaa;
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden; /* hides text overflow during animation */
+}
+
+.footer-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 15s linear infinite;
+}
+
+/* Animation for scrolling effect */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .intro h2 {
+        font-size: 1.6rem;
+      }
+
+      .intro p {
+        font-size: 1rem;
+      }
+
+      .section-card {
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .video-grid iframe {
+        height: 180px;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      body {
+        padding-top: 120px; /* Adjust header overlap */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        padding: 4px 6px;
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Azadari Network Logo">
+      <h1>Azadari Network Bareilly</h1>
+    </div>
+    <nav>
+      <a href="Main.html" class="active">Home</a>
+      <a href="live.html">Live</a>
+      <a href="events.html">Events</a>
+      <a href="booking.html">Enquiry</a>
+      <a href="team.html">Team</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="intro">
+      <h2>Welcome to Azadari Network Bareilly</h2>
+      <p>Your platform for Azadari live streams, events, and community updates.</p>
+      <a href="live.html" class="btn">🎥 Watch Live Streams</a>
+    </section>
+
+    <div class="section-row">
+      <div class="section-card">
+        <h2>🎬 Latest from YouTube</h2>
+        <div class="video-grid">
+          <iframe src="https://www.youtube.com/embed/MnbVecRQ8zQ" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/S88jQZj7yNw" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Y1j0b5dFgTo" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/edz8x0IbarQ" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/bGaes6l9on0" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/YsjAbN8vxzQ" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Ig6MtTTYB8k" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/0y-WHXwXKzM" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/zDz712Dfzyc" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/saSxXNVuLxY" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/0MKBuNYbIVE" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/KUe5JAK3xXg" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/m38RVTnkJOI" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/UKTUbcpfblY" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <a href="https://youtube.com/@azadarinetwork786" target="_blank" class="btn">Visit Channel</a>
+      </div>
+
+      <div class="section-card">
+        <h2>📸 Instagram Highlights</h2>
+        <div class="image-grid">
+          <a href="https://www.instagram.com/reel/DNbPtxxyy3E/" target="_blank"><img src="1.png" alt="Highlight 1"></a>
+          <a href="https://www.instagram.com/reel/DN1kTjeZOt-/" target="_blank"><img src="2.png" alt="Highlight 2"></a>
+          <a href="https://www.instagram.com/reel/DEcEXE1vAVW/?igsh=MXhjampwMml5MXkzdg==" target="_blank"><img src="3.png" alt="Highlight 3"></a>
+          <a href="https://www.instagram.com/reel/DOvq_VOkvaH/" target="_blank"><img src="4.png" alt="Highlight 4"></a>
+          <a href="https://www.instagram.com/reel/DODZqQkkmna/?igsh=ODVvODByMzBlYzA5" target="_blank"><img src="5.png" alt="Highlight 5"></a>
+          <a href="https://www.instagram.com/reel/DNyM8za0Hy_/?igsh=azZ0NXBlcXh1MnZ3" target="_blank"><img src="6.png" alt="Highlight 6"></a>
+          <a href="https://www.instagram.com/reel/DNx4_0R5Nlk/?igsh=aGMyNWwzamh0MnJi" target="_blank"><img src="7.png" alt="Highlight 7"></a>
+          <a href="https://www.instagram.com/reel/DNwvOb3ZGZH/?igsh=MWh1M2phdTRyNmdo" target="_blank"><img src="8.png" alt="Highlight 8"></a>
+          <a href="https://www.instagram.com/reel/DNoCc5oS9uo/?igsh=cGQ1OGNsdnJtdXl1" target="_blank"><img src="9.png" alt="Highlight 9"></a>
+          <a href="https://www.instagram.com/reel/DNiUhD_PtNC/?igsh=MWQwaWQwcmxoY3ljcQ==" target="_blank"><img src="10.png" alt="Highlight 10"></a>
+          <a href="https://www.instagram.com/reel/DNh9JFYvAWh/?igsh=MWhncGo0M3FuNXM2Ng==" target="_blank"><img src="11.png" alt="Highlight 11"></a>
+          <a href="https://www.instagram.com/reel/DNWhmLUT-od/?igsh=YjRkcHU4NjUycDg0" target="_blank"><img src="12.png" alt="Highlight 12"></a>
+          <a href="https://www.instagram.com/reel/DMnEZMnPISF/?igsh=MXc5cWVneW1haDR5eg==" target="_blank"><img src="13.png" alt="Highlight 13"></a>
+          <a href="https://www.instagram.com/reel/DL5Sn5iSD7B/?igsh=cTZhNHVxZGRoM2l0" target="_blank"><img src="14.png" alt="Highlight 14"></a>
+          <a href="https://www.instagram.com/reel/DLzBhjVPO5t/?igsh=MWw1ZWltZTQ3Mmc5dw==" target="_blank"><img src="15.png" alt="Highlight 15"></a>
+          <a href="https://www.instagram.com/reel/Cr-ePd_MQ6T/?igsh=MW5hZzlxNzAwZXI0eA==" target="_blank"><img src="16.png" alt="Highlight 16"></a>
+          <a href="https://www.instagram.com/reel/DFgEDMOT4lB/?igsh=dmhwNDRtMXB6d20w" target="_blank"><img src="17.png" alt="Highlight 17"></a>
+          <a href="https://www.instagram.com/reel/DLqezxCzZge/?igsh=MWVnajZvbnFicWNyYg==" target="_blank"><img src="18.png" alt="Highlight 18"></a>
+          <a href="https://www.instagram.com/reel/DLtQ6fASId2/?igsh=MWkwbDJ0amplcmpnOA==" target="_blank"><img src="19.png" alt="Highlight 19"></a>
+          <a href="https://www.instagram.com/reel/DLuuaNlvyrQ/?igsh=MWhmN2EwaHYxeXA1Yw==" target="_blank"><img src="20.png" alt="Highlight 20"></a>
+          <a href="https://www.instagram.com/reel/DMYfs_XTGJ3/?igsh=MWt2Nnp2OTRhaHV0aA==" target="_blank"><img src="21.png" alt="Highlight 21"></a>
+          <a href="https://www.instagram.com/reel/DNd1oTQSMlb/?igsh=MTJ6ZTBmaW5iem96aA==" target="_blank"><img src="22.png" alt="Highlight 22"></a>
+          <a href="https://www.instagram.com/reel/DNoVT6XTE1l/?igsh=MWNnMnB1ajVjYnIzNA==" target="_blank"><img src="23.png" alt="Highlight 23"></a>
+          <a href="https://www.instagram.com/reel/DNxk9FQ5NIB/?igsh=MTdkOTF0bnBrOWJ6cA==" target="_blank"><img src="24.png" alt="Highlight 24"></a>
+          <a href="https://www.instagram.com/reel/DLtM3KoyP97/?igsh=MXc2OHF3ajVqNnJ1Yg==" target="_blank"><img src="25.png" alt="Highlight 25"></a>
+          <a href="https://www.instagram.com/reel/C_jOB4kynxZ/?igsh=YTVzemIyMjFhbXk2" target="_blank"><img src="35.jpg" alt="Highlight 35"></a>
+          <a href="https://www.instagram.com/reel/C_JpDK-yLlT/?igsh=ajVjemZqanNxYXBi" target="_blank"><img src="28.jpg" alt="Highlight 28"></a>
+          <a href="https://www.instagram.com/reel/DMcUub6PdSz/?igsh=dGdndzRmcXM1NW4z" target="_blank"><img src="29.png" alt="Highlight 29"></a>
+          <a href="https://www.instagram.com/reel/DHfMrj0P6Jm/?igsh=cDJyb2tubGh4bXU2" target="_blank"><img src="30.png" alt="Highlight 30"></a>
+          <a href="https://www.instagram.com/reel/DN4M_mGEnLd/?igsh=emFuM2Z0M3Yzd2Js" target="_blank"><img src="31.png" alt="Highlight 31"></a>
+          <a href="https://www.instagram.com/reel/C_KtY3BPAPe/?igsh=Mmd4bXJnc3FvcHk5" target="_blank"><img src="33.jpg" alt="Highlight 33"></a>
+          <a href="https://www.instagram.com/reel/C_eEMC2yc15/?igsh=M25tb3cwMDN6dDY3" target="_blank"><img src="34.jpg" alt="Highlight 34"></a>
+        </div>
+        <a href="https://www.instagram.com/azadari.network" target="_blank" class="btn">Visit Instagram</a>
+      </div>
+
+      <div class="section-card">
+        <h2>📢 Follow Us</h2>
+        <p>Stay updated with events and live majlis on our official pages.</p>
+        <a href="https://www.facebook.com/share/1AF3TGMtTa/" target="_blank" class="btn">Facebook</a>
+        <a href="https://youtube.com/@azadarinetwork786" target="_blank" class="btn">YouTube</a>
+        <a href="https://www.instagram.com/azadari.network" target="_blank" class="btn">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-text">
+      © 2025 Azadari Network Bareilly. All Rights Reserved.
+    </div>
+  </footer>
+</body>
+</html>
